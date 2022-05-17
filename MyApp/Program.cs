@@ -9,7 +9,7 @@ string numero1 = Console.ReadLine();
 Console.WriteLine("Ingrese otro numero:");
 string numero2 = Console.ReadLine();
 
-string resultado = numero1 + numero2;
+Double resultado = Convert.ToDouble(numero1) + Convert.ToDouble(numero2);
 // int resultado = Int32.Parse(numero1) + Int32.Parse(numero2);
 
 string resultado2 = numero1 + numero2;
