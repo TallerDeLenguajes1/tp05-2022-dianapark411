@@ -2,27 +2,36 @@
 
 //EJERCICIO 1: INVERTIR NUMERO
 
-int resultado = 0, resto;
+void CalculadoraV2 () {
 
-Console.WriteLine("Ingrese un numero:");
-string numero = Console.ReadLine();
+    Console.WriteLine("Ingrese un numero:");
+    string numero1 = Console.ReadLine();
+    double num1 = Convert.ToDouble(numero1);
 
-int num = Convert.ToInt32(numero);
-
-if(num<=0){
-    resultado = num;
-}else{
-    for (int i = numero.Length; i > 0; i--){
-        if(num>0){
-            resto = num%10;
-            resultado = resultado + resto * (int)(Math.Pow(10, i-1)); //casteo el resultado de la funcion pow porque me devuelve un doble
-            num = num/10;
-        }
+    Console.WriteLine("Valor absoluto:" + Math.Abs(num1));
+    Console.WriteLine("Cuadrado:" + Math.Pow(num1, 2));
+    if(num1>0){
+        Console.WriteLine("Raiz cuadrada:" + Math.Sqrt(num1));
+    }else{
+        Console.WriteLine("ERROR! No puede calcular la raiz cuadrada de un negativo");
     }
+    Console.WriteLine("Seno:" + Math.Sin(num1));
+    Console.WriteLine("Coseno:" + Math.Cos(num1));
+    Console.WriteLine("Parte entera:" + Math.Truncate(num1));
+
+    Console.WriteLine("Ingrese un numero:");
+    string numero2 = Console.ReadLine();
+    double num2 = Convert.ToDouble(numero2);
+
+    Console.WriteLine("Ingrese otro numero:");
+    string numero3 = Console.ReadLine();
+    double num3 = Convert.ToDouble(numero3);
+    
+    Console.WriteLine("El maximo de los numeros:" + Math.Max(num2, num3));
+    Console.WriteLine("El minimo de los numeros:" + Math.Min(num2, num3));
 }
 
-
-Console.WriteLine("El numero invertido es: " + resultado);
+CalculadoraV2();
 
 /*
 Console.WriteLine("Ingrese texto:");
