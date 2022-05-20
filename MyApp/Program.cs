@@ -1,28 +1,56 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-//EJERCICIO 1: INVERTIR NUMERO
+//EJERCICIO 2: CALCULADORA BASICA
 
-int resultado = 0, resto;
+void CalculadoraV1 () {
+    int result = 0;
 
-Console.WriteLine("Ingrese un numero:");
-string numero = Console.ReadLine();
+    Console.WriteLine("Que operacion desea realizar?");
+    Console.WriteLine("SUMAR-> 1  -  RESTAR-> 2  -  MULTIPLICAR-> 3  -  DIVIDIR-> 4 :  ");
+    string opcionUsuario = Console.ReadLine();
+    int opcion = Convert.ToInt32(opcionUsuario);
 
-int num = Convert.ToInt32(numero);
+    Console.WriteLine("Ingrese un numero:");
+    string numero1 = Console.ReadLine();
+    int num1 = Convert.ToInt32(numero1);
 
-if(num<=0){
-    resultado = num;
-}else{
-    for (int i = numero.Length; i > 0; i--){
-        if(num>0){
-            resto = num%10;
-            resultado = resultado + resto * (int)(Math.Pow(10, i-1)); //casteo el resultado de la funcion pow porque me devuelve un doble
-            num = num/10;
-        }
+    Console.WriteLine("Ingrese otro numero:");
+    string numero2 = Console.ReadLine();
+    int num2 = Convert.ToInt32(numero2);
+
+    switch (opcion){
+        case 1:
+            result = num1+num2;
+            break;
+        case 2:
+            result = num1-num2;
+            break;
+        case 3:
+            result = num1*num2;
+            break;
+        case 4:
+            if(num2!=0){
+                result = num1/num2;
+            }else{
+                Console.WriteLine("ERROR! Para dividir dos numeros el segundo debe ser distinto de cero");
+            }
+            break;
+        default:
+            break;
+    }
+
+    Console.WriteLine("El resultado es: " + result);
+    Console.WriteLine("Desea realizar otra operacion?");
+    Console.WriteLine("SI: 1, NO:0");
+    string opcionUsuario2 = Console.ReadLine();
+    int opcion2 = Convert.ToInt32(opcionUsuario2);
+
+    if(opcion2 == 1){
+        CalculadoraV1();
     }
 }
 
-
-Console.WriteLine("El numero invertido es: " + resultado);
+CalculadoraV1();
 
 /*
 Console.WriteLine("Ingrese texto:");
