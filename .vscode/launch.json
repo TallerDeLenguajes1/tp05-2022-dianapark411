@@ -12,7 +12,7 @@
             "program": "${workspaceFolder}/MyApp/bin/Debug/net6.0/MyApp.dll",
             "args": [],
             "cwd": "${workspaceFolder}/MyApp",
-            "console": "internalConsole",
+            "console": "integratedTerminal",
             "stopAtEntry": false
         },
         {
