@@ -9,13 +9,18 @@ string numero = Console.ReadLine();
 
 int num = Convert.ToInt32(numero);
 
-for (int i = numero.Length; i > 0; i--){
-    if(num>0){
-        resto = num%10;
-        resultado = resultado + resto * (int)(Math.Pow(10, i-1)); //casteo el resultado de la funcion pow porque me devuelve un doble
-        num = num/10;
+if(num<=0){
+    resultado = num;
+}else{
+    for (int i = numero.Length; i > 0; i--){
+        if(num>0){
+            resto = num%10;
+            resultado = resultado + resto * (int)(Math.Pow(10, i-1)); //casteo el resultado de la funcion pow porque me devuelve un doble
+            num = num/10;
+        }
     }
 }
+
 
 Console.WriteLine("El numero invertido es: " + resultado);
 
