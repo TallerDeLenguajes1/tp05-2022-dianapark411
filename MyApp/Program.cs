@@ -2,21 +2,8 @@
 
 //EJERCICIOS 2, 3: CALCULADORA BASICA
 
-void CalculadoraV1 () {
+int CalculadoraV1 (int opcion, int num1, int num2) {
     int result = 0;
-
-    Console.WriteLine("Que operacion desea realizar?");
-    Console.WriteLine("SUMAR-> 1  -  RESTAR-> 2  -  MULTIPLICAR-> 3  -  DIVIDIR-> 4 :  ");
-    string opcionUsuario = Console.ReadLine();
-    int opcion = Convert.ToInt32(opcionUsuario);
-
-    Console.WriteLine("Ingrese un numero:");
-    string numero1 = Console.ReadLine();
-    int num1 = Convert.ToInt32(numero1);
-
-    Console.WriteLine("Ingrese otro numero:");
-    string numero2 = Console.ReadLine();
-    int num2 = Convert.ToInt32(numero2);
 
     switch (opcion){
         case 1:
@@ -39,15 +26,7 @@ void CalculadoraV1 () {
             break;
     }
 
-    Console.WriteLine("El resultado es: " + result);
-    Console.WriteLine("Desea realizar otra operacion?");
-    Console.WriteLine("SI: 1, NO:0");
-    string opcionUsuario2 = Console.ReadLine();
-    int opcion2 = Convert.ToInt32(opcionUsuario2);
-
-    if(opcion2 == 1){
-        CalculadoraV1();
-    }
+    return result;
 }
 
 void CalculadoraV2 () {
@@ -79,7 +58,29 @@ void CalculadoraV2 () {
     Console.WriteLine("El minimo de los numeros:" + Math.Min(num2, num3));
 }
 
-CalculadoraV1();
+
+int flag = 1;
+while (flag == 1){
+    Console.WriteLine("Que operacion desea realizar?");
+    Console.WriteLine("SUMAR-> 1  -  RESTAR-> 2  -  MULTIPLICAR-> 3  -  DIVIDIR-> 4 :  ");
+    string opcionUsuario = Console.ReadLine();
+    int opcion = Convert.ToInt32(opcionUsuario);
+
+    Console.WriteLine("Ingrese un numero:");
+    string numero1 = Console.ReadLine();
+    int num1 = Convert.ToInt32(numero1);
+
+    Console.WriteLine("Ingrese otro numero:");
+    string numero2 = Console.ReadLine();
+    int num2 = Convert.ToInt32(numero2);
+
+    int resultado = CalculadoraV1(opcion, num1,num2);
+    Console.WriteLine("El resultado es: " + resultado);
+    Console.WriteLine("Desea realizar otra operacion?");
+    Console.WriteLine("SI: 1, NO:0");
+    flag = Convert.ToInt32(Console.ReadLine());
+}
+
 CalculadoraV2();
 
 
@@ -102,6 +103,10 @@ Console.WriteLine("Cadena leida caracter por caracter:");
 foreach (char c in cadena1){
     Console.WriteLine(c);
 }
+
+/*
+● Ingrese una cadena separada por caracteres que usted determine y muestre por pantalla los resultados (Revisar el comportamiento de split()) -> tampoco se a que se refiere con mostrar los resultados
+*/
 
 List<string> array = new List<string>();
 array = cadena1.Split(' ').ToList();    //guardo cada palabra de la cadena en un array
@@ -135,20 +140,73 @@ if(valor == 0){
     }
 }
 
-Console.WriteLine("Ingrese una ecuacion (Simbolos: Suma-> +, Resta-> -, Multiplicacion-> x, Division-> / ): ");
-string ecuacion = Console.ReadLine();
-
 /*
-
 ● Utilizando la calculadora creada anteriormente realizar las operaciones de dos números y mostrar por pantalla y mostrar en texto el resultado. Por ejemplo para la suma sería:
 “la suma de “ num1 “ y de” num2 “ es igual a: ” resultado.
 Donde num1, num2 y resultados son los sumandos y el resultado de la operación respectivamente.
 Nota: Busque el comportamiento del Método ToString();
 
-● Ingrese una cadena separada por caracteres que usted determine y muestre por pantalla los resultados (Revisar el comportamiento de split())
+A esto refiere? no cambia mucho respecto de lo anterior, solo como mostrar el resultado
+*/
 
+Console.WriteLine("\nUtilizando la calculadora del ejercicio 2:");
+Console.WriteLine("Que operacion desea realizar?");
+Console.WriteLine("SUMAR-> 1  -  RESTAR-> 2  -  MULTIPLICAR-> 3  -  DIVIDIR-> 4 :  ");
+int opcion1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Ingrese un numero:");
+int num4 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Ingrese otro numero:");
+int num5 = Convert.ToInt32(Console.ReadLine());
+int resultado1 = CalculadoraV1(opcion1, num4,num5);
+
+string operacion;
+if(opcion1 == 1){
+   operacion = "suma"; 
+}else{
+    if (opcion1 == 2){
+        operacion = "resta"; 
+    }else{
+        if(opcion1 == 3){
+            operacion = "multiplicacion"; 
+        }else{
+            operacion = "division"; 
+        }
+    }
+}
+Console.WriteLine("La {0} de {1} y de {2} es igual a: {3}", operacion, num4.ToString(), num5.ToString(), resultado1.ToString());
+
+
+/* 
 ● Siguiendo con el ejemplo de la calculadora (ejercicio 2) ingrese una ecuación simple como cadena de caracteres y que el sistema lo resuelva. Por ej. ingrese por pantalla “582+2” y que le devuelva la suma de 582 con 2
 */
+
+Console.WriteLine("Ingrese una ecuacion (Simbolos: Suma-> +, Resta-> -, Multiplicacion-> x, Division-> / ): ");
+string ecuacion = Console.ReadLine();
+string[] ecuacionDividida ;
+int opcion2 = 0;
+
+if(ecuacion.Contains('+')){
+    ecuacionDividida = ecuacion.Split('+');
+    opcion2 = 1;
+}else{
+    if(ecuacion.Contains('-')){
+        ecuacionDividida = ecuacion.Split('-');
+        opcion2 = 2;
+    }else{
+        if(ecuacion.Contains('x')){
+            ecuacionDividida = ecuacion.Split('x');
+            opcion2 = 3;
+        }else{
+            ecuacionDividida = ecuacion.Split('/');
+            opcion2 = 4;
+        }
+    }
+}
+
+int resultado2 = CalculadoraV1(opcion2, Convert.ToInt32(ecuacionDividida[0]), Convert.ToInt32(ecuacionDividida[1]));
+
+Console.WriteLine("{0} = {1}", ecuacion, resultado2.ToString());
+
 
 /*
 Console.WriteLine("Ingrese texto:");
