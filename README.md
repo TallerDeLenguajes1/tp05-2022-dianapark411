@@ -6,7 +6,7 @@ String es un tipo de referencia
 Las secuencias de escape de string son: 
 - \'	Single quote	
 - \"	Double quote	
-- \\	Backslash	
+- \ \	Backslash	
 - \0	Null	
 - \a	Alert	
 - \b	Backspace	
