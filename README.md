@@ -4,8 +4,8 @@ String es un tipo de referencia
 
 ## ¿Qué secuencias de escape tiene el tipo string?
 Las secuencias de escape de string son: 
-- \'	Single quote	
-- \"	Double quote	
+- \ '	Single quote	
+- \ "	Double quote	
 - \ \	Backslash	
 - \0	Null	
 - \a	Alert	
