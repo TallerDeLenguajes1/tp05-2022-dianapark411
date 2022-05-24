@@ -89,7 +89,8 @@ CalculadoraV2();
 Console.WriteLine("Ingrese una cadena: ");
 string cadena1 = Console.ReadLine();
 
-// Obtener algunas letras que forman parte de una cadena -> nose a que se refiere porque mas abajo pide que extraiga una subcadena
+
+Console.WriteLine("Algunas letras de la cadena: " + cadena1[0] + cadena1[3]);
 
 Console.WriteLine("Longitud de la cadena: " + cadena1.Length);
 Console.WriteLine("Subcadena: " + cadena1.Substring(1,5));
@@ -145,8 +146,6 @@ if(valor == 0){
 “la suma de “ num1 “ y de” num2 “ es igual a: ” resultado.
 Donde num1, num2 y resultados son los sumandos y el resultado de la operación respectivamente.
 Nota: Busque el comportamiento del Método ToString();
-
-A esto refiere? no cambia mucho respecto de lo anterior, solo como mostrar el resultado
 */
 
 Console.WriteLine("\nUtilizando la calculadora del ejercicio 2:");
